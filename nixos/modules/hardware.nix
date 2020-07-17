@@ -12,11 +12,16 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-#   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-#   boot.initrd.kernelModules = [ ];
-#   boot.kernelModules = [ "kvm-intel" ];
-#   boot.extraModulePackages = [ ];
+  hardware.parallels.enable = true;
 
-  # nix.maxJobs = lib.mkDefault 4;
+  hardware.parallels.package = 
+     let src = pkgs.fetchgit { 
+ 	    url = "https://github.com/saaadhu/prl-tools.git";
+ 	    rev = "e42c51e38a74ec161da80da5c56f99204f2a67b4";
+ 	    sha256 = "0d5aq8sz5wk2dnhwqv3bhkmzkkfyv138d6qpznrgsasvas6gm0d1";
+     };
+     in pkgs.linuxPackages_4_14.callPackage "${src}/default.nix" {};
+
+  nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

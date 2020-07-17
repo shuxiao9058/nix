@@ -23,12 +23,16 @@
 # 
 #     extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
 
+  # Switch kernel to 4.14 for Parallels compatibility
+  kernelPackages = pkgs.linuxPackages_4_14;
+
     kernel.sysctl = {
       "vm.swappiness" = 5;
       "vm.vfs_cache_pressure" = 50;
       "kernel.sysrq" = 1;
     };
   };
+
 
   hardware.cpu.intel.updateMicrocode = true;
 }
