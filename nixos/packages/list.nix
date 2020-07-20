@@ -1,3 +1,1 @@
-[
-  (import ./user.nix)
-]
+[ (import ./user.nix) ]

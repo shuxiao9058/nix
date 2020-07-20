@@ -3,12 +3,14 @@
 {
   nixpkgs.overlays = import ../packages/list.nix;
 
-  #   environment.systemPackages = with pkgs; [
-  #     fcitx-configtool
-  #     utillinux
-  #     pciutils
-  #     nvidia-offload
-  #   ];
+  environment.systemPackages = with pkgs;
+    [
+
+      # fcitx-configtool
+      # utillinux
+      # pciutils
+      # nvidia-offload
+    ];
 
   programs.vim.defaultEditor = true;
 
