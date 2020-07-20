@@ -12,15 +12,15 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  hardware.parallels.enable = true;
+#  hardware.parallels.enable = false;
 
-  hardware.parallels.package = 
-     let src = pkgs.fetchgit { 
- 	    url = "https://github.com/saaadhu/prl-tools.git";
- 	    rev = "e42c51e38a74ec161da80da5c56f99204f2a67b4";
- 	    sha256 = "0d5aq8sz5wk2dnhwqv3bhkmzkkfyv138d6qpznrgsasvas6gm0d1";
-     };
-     in pkgs.linuxPackages_4_14.callPackage "${src}/default.nix" {};
+#   hardware.parallels.package = 
+#      let src = pkgs.fetchgit { 
+#  	    url = "https://github.com/shuxiao9058/prl-tools.git";
+#  	    rev = "7ca697d73d70eb2538dbc415c179f3a6131deba0";
+#  	    sha256 = "0d5aq8sz5wk2dnhwqv3bhkmzkkfyv138d6qpznrgsasvas6gm0d1";
+#      };
+#      in pkgs.linuxPackages_4_14.callPackage "${src}/default.nix" {};
 
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

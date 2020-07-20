@@ -52,6 +52,10 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   services.openssh.enable = true;
+  # services.openssh.authorizedKeysFiles = [".ssh/authorized_keys"];
+  # services.openssh.passwordAuthentication = false; # originally true
+  services.openssh.permitRootLogin = "yes";
+  services.openssh.challengeResponseAuthentication = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -86,7 +90,11 @@
   users.users.jiya = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzb0t+erUVWg9FyLYcjqt1fYSMYAmIGz+yw9iXDVb+gxzzlcpzwjGbDixfpOELkTRlN1lfN0yDbeGqCzvM1ET4EZIFvmhl/IQJDYdzwIlRZMAPhIw4cEJ3NVpkMkdUzJjqfzbKZYcVvmnXBVVLGFUmEi+7t7zhyH8O7NA9THKKPCnRUp+FDVrtxmhHzY6D/kmLKcPQzctX8Z2BjRAXgc2nBO6XH+UN0s0oEN+o1zjO1Gouv/gD5HWUz5LAVFLC3zlfskT0MXtdcXW5w/KWukCtgSl3Lvp7fQZH2DVV8WDPi+i8o0eFOgd2gPXBifoEJj04vBr2O7m6fwiFFXV2TSNt jiya@centos-linux.shared" ];
   };
+
+  # users.extraUsers.root.openssh.authorizedKeys.keys = [ "ssh-rsa AAAA... davidak" ];
+   users.extraUsers.root.openssh.authorizedKeys.keys  = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzb0t+erUVWg9FyLYcjqt1fYSMYAmIGz+yw9iXDVb+gxzzlcpzwjGbDixfpOELkTRlN1lfN0yDbeGqCzvM1ET4EZIFvmhl/IQJDYdzwIlRZMAPhIw4cEJ3NVpkMkdUzJjqfzbKZYcVvmnXBVVLGFUmEi+7t7zhyH8O7NA9THKKPCnRUp+FDVrtxmhHzY6D/kmLKcPQzctX8Z2BjRAXgc2nBO6XH+UN0s0oEN+o1zjO1Gouv/gD5HWUz5LAVFLC3zlfskT0MXtdcXW5w/KWukCtgSl3Lvp7fQZH2DVV8WDPi+i8o0eFOgd2gPXBifoEJj04vBr2O7m6fwiFFXV2TSNt jiya@centos-linux.shared" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
