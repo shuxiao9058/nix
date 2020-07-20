@@ -27,8 +27,10 @@ self: super: {
       xclip
       wakatime
 
+      nixfmt;
+
       # wm       
-      i3-gaps;
+      # i3-gaps;
 
     ## helper script to keep user env clean
     nix-rebuild = super.writeScriptBin "nix-rebuild"

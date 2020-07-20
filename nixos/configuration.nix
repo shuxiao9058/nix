@@ -5,15 +5,14 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ 
-      ./modules/boot.nix
-      ./modules/filesystems.nix
-      ./modules/graphical.nix
-      ./modules/hardware.nix
-      ./modules/nix.nix
-      ./modules/system.nix
-    ];
+  imports = [
+    ./modules/boot.nix
+    ./modules/filesystems.nix
+    ./modules/graphical.nix
+    ./modules/hardware.nix
+    ./modules/nix.nix
+    ./modules/system.nix
+  ];
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -34,9 +33,7 @@
   #   wget vim
   # ];
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-     wget vim emacs git
-  ];
+  environment.systemPackages = with pkgs; [ wget vim emacs git ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -83,17 +80,17 @@
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.jane = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  # };
   users.users.jiya = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzb0t+erUVWg9FyLYcjqt1fYSMYAmIGz+yw9iXDVb+gxzzlcpzwjGbDixfpOELkTRlN1lfN0yDbeGqCzvM1ET4EZIFvmhl/IQJDYdzwIlRZMAPhIw4cEJ3NVpkMkdUzJjqfzbKZYcVvmnXBVVLGFUmEi+7t7zhyH8O7NA9THKKPCnRUp+FDVrtxmhHzY6D/kmLKcPQzctX8Z2BjRAXgc2nBO6XH+UN0s0oEN+o1zjO1Gouv/gD5HWUz5LAVFLC3zlfskT0MXtdcXW5w/KWukCtgSl3Lvp7fQZH2DVV8WDPi+i8o0eFOgd2gPXBifoEJj04vBr2O7m6fwiFFXV2TSNt jiya@centos-linux.shared" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzb0t+erUVWg9FyLYcjqt1fYSMYAmIGz+yw9iXDVb+gxzzlcpzwjGbDixfpOELkTRlN1lfN0yDbeGqCzvM1ET4EZIFvmhl/IQJDYdzwIlRZMAPhIw4cEJ3NVpkMkdUzJjqfzbKZYcVvmnXBVVLGFUmEi+7t7zhyH8O7NA9THKKPCnRUp+FDVrtxmhHzY6D/kmLKcPQzctX8Z2BjRAXgc2nBO6XH+UN0s0oEN+o1zjO1Gouv/gD5HWUz5LAVFLC3zlfskT0MXtdcXW5w/KWukCtgSl3Lvp7fQZH2DVV8WDPi+i8o0eFOgd2gPXBifoEJj04vBr2O7m6fwiFFXV2TSNt jiya@centos-linux.shared"
+    ];
   };
 
-   users.extraUsers.root.openssh.authorizedKeys.keys  = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzb0t+erUVWg9FyLYcjqt1fYSMYAmIGz+yw9iXDVb+gxzzlcpzwjGbDixfpOELkTRlN1lfN0yDbeGqCzvM1ET4EZIFvmhl/IQJDYdzwIlRZMAPhIw4cEJ3NVpkMkdUzJjqfzbKZYcVvmnXBVVLGFUmEi+7t7zhyH8O7NA9THKKPCnRUp+FDVrtxmhHzY6D/kmLKcPQzctX8Z2BjRAXgc2nBO6XH+UN0s0oEN+o1zjO1Gouv/gD5HWUz5LAVFLC3zlfskT0MXtdcXW5w/KWukCtgSl3Lvp7fQZH2DVV8WDPi+i8o0eFOgd2gPXBifoEJj04vBr2O7m6fwiFFXV2TSNt jiya@centos-linux.shared" ];
+  users.extraUsers.root.openssh.authorizedKeys.keys = [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzb0t+erUVWg9FyLYcjqt1fYSMYAmIGz+yw9iXDVb+gxzzlcpzwjGbDixfpOELkTRlN1lfN0yDbeGqCzvM1ET4EZIFvmhl/IQJDYdzwIlRZMAPhIw4cEJ3NVpkMkdUzJjqfzbKZYcVvmnXBVVLGFUmEi+7t7zhyH8O7NA9THKKPCnRUp+FDVrtxmhHzY6D/kmLKcPQzctX8Z2BjRAXgc2nBO6XH+UN0s0oEN+o1zjO1Gouv/gD5HWUz5LAVFLC3zlfskT0MXtdcXW5w/KWukCtgSl3Lvp7fQZH2DVV8WDPi+i8o0eFOgd2gPXBifoEJj04vBr2O7m6fwiFFXV2TSNt jiya@centos-linux.shared"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -104,6 +101,3 @@
   system.stateVersion = "20.03"; # Did you read the comment?
 
 }
-
-
-
