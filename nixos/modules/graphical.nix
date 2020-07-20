@@ -67,7 +67,7 @@
     };
 
    displayManager = {
-     defaultSession = "none+i3";
+     defaultSession = "none+awesome";
      # gdm.enable = true;
    };
 
@@ -86,10 +86,17 @@
     };
 
     windowManager = {
-      i3 = {
+      awesome = {
         enable = true;
-        package = pkgs.i3-gaps;
+        luaModules = [
+          pkgs.luaPackages.vicious
+          # pkgs.awesome-wm-widgets
+        ];
       };
+    #   i3 = {
+    #     enable = true;
+    #     package = pkgs.i3-gaps;
+    #   };
       # default = "i3";
     };
 

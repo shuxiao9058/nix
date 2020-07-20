@@ -35,5 +35,7 @@
   # Switch kernel to 4.14 for Parallels compatibility
   boot.kernelPackages = pkgs.linuxPackages_4_14;
 
+  # hardware.opengl.package32 = lib.mkForce pkgs.pkgsi686Linux.linuxPackages_4_14.prl-tools.override { libsOnly = true; kernel = null; };
+
   hardware.cpu.intel.updateMicrocode = true;
 }
