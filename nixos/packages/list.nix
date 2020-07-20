@@ -1,3 +1,3 @@
 [
-  (import ./my.nix)
+  (import ./user.nix)
 ]
