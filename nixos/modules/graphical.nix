@@ -1,46 +1,46 @@
 { config, pkgs, ... }:
 
 {
- services.xserver.config = ''
-# DefaultFlags section
-Section "ServerFlags"
-	Option	"AllowEmptyInput"	"yes"
-	Option	"AutoAddDevices"	"yes"
-EndSection
-# Parallels Video section
-Section "Device"
-	Identifier	"Parallels Video"
-	Driver	"prlvideo"
-EndSection
-# Parallels Monitor section
-Section "Monitor"
-	Identifier	"Parallels Monitor"
-	VendorName	"Parallels Inc."
-	ModelName	"Parallels Monitor"
-EndSection
-# Parallels Screen section
-Section "Screen"
-	Identifier	"Parallels Screen"
-	Device	"Parallels Video"
-	Monitor	"Parallels Monitor"
-	Option	"NoMTRR"
-	SubSection	"Display"
-		Depth	24
-		Modes	"1024x768" "800x600" "640x480"
-	EndSubSection
-EndSection
-# DefaultFlags section
-Section "ServerFlags"
-	Option	"AllowEmptyInput"	"yes"
-	Option	"AutoAddDevices"	"yes"
-EndSection
-# DefaultLayout section
-Section "ServerLayout"
-	Identifier	"DefaultLayout"
-	Screen	"Parallels Screen"
-EndSection
-   '';
-
+#  services.xserver.config = ''
+# # DefaultFlags section
+# Section "ServerFlags"
+# 	Option	"AllowEmptyInput"	"yes"
+# 	Option	"AutoAddDevices"	"yes"
+# EndSection
+# # Parallels Video section
+# Section "Device"
+# 	Identifier	"Parallels Video"
+# 	Driver	"prlvideo"
+# EndSection
+# # Parallels Monitor section
+# Section "Monitor"
+# 	Identifier	"Parallels Monitor"
+# 	VendorName	"Parallels Inc."
+# 	ModelName	"Parallels Monitor"
+# EndSection
+# # Parallels Screen section
+# Section "Screen"
+# 	Identifier	"Parallels Screen"
+# 	Device	"Parallels Video"
+# 	Monitor	"Parallels Monitor"
+# 	Option	"NoMTRR"
+# 	SubSection	"Display"
+# 		Depth	24
+# 		Modes	"1024x768" "800x600" "640x480"
+# 	EndSubSection
+# EndSection
+# # DefaultFlags section
+# Section "ServerFlags"
+# 	Option	"AllowEmptyInput"	"yes"
+# 	Option	"AutoAddDevices"	"yes"
+# EndSection
+# # DefaultLayout section
+# Section "ServerLayout"
+# 	Identifier	"DefaultLayout"
+# 	Screen	"Parallels Screen"
+# EndSection
+#    '';
+# 
   services.xserver = {
     enable = true;
     layout = "us";
