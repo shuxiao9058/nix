@@ -93,7 +93,6 @@
     openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzb0t+erUVWg9FyLYcjqt1fYSMYAmIGz+yw9iXDVb+gxzzlcpzwjGbDixfpOELkTRlN1lfN0yDbeGqCzvM1ET4EZIFvmhl/IQJDYdzwIlRZMAPhIw4cEJ3NVpkMkdUzJjqfzbKZYcVvmnXBVVLGFUmEi+7t7zhyH8O7NA9THKKPCnRUp+FDVrtxmhHzY6D/kmLKcPQzctX8Z2BjRAXgc2nBO6XH+UN0s0oEN+o1zjO1Gouv/gD5HWUz5LAVFLC3zlfskT0MXtdcXW5w/KWukCtgSl3Lvp7fQZH2DVV8WDPi+i8o0eFOgd2gPXBifoEJj04vBr2O7m6fwiFFXV2TSNt jiya@centos-linux.shared" ];
   };
 
-  # users.extraUsers.root.openssh.authorizedKeys.keys = [ "ssh-rsa AAAA... davidak" ];
    users.extraUsers.root.openssh.authorizedKeys.keys  = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzb0t+erUVWg9FyLYcjqt1fYSMYAmIGz+yw9iXDVb+gxzzlcpzwjGbDixfpOELkTRlN1lfN0yDbeGqCzvM1ET4EZIFvmhl/IQJDYdzwIlRZMAPhIw4cEJ3NVpkMkdUzJjqfzbKZYcVvmnXBVVLGFUmEi+7t7zhyH8O7NA9THKKPCnRUp+FDVrtxmhHzY6D/kmLKcPQzctX8Z2BjRAXgc2nBO6XH+UN0s0oEN+o1zjO1Gouv/gD5HWUz5LAVFLC3zlfskT0MXtdcXW5w/KWukCtgSl3Lvp7fQZH2DVV8WDPi+i8o0eFOgd2gPXBifoEJj04vBr2O7m6fwiFFXV2TSNt jiya@centos-linux.shared" ];
 
   # This value determines the NixOS release from which the default

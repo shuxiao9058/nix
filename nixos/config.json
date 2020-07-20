@@ -1,0 +1,6 @@
+{
+  "channel": "nixos-stable",
+  "name": "nixos-20.03.2611.bb8f0cc2279",
+  "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-20.03@nixos-20.03.2611.bb8f0cc2279/nixexprs.tar.xz",
+  "sha256": "1rngjmzqpxz33lfc752mpd6lpx9na863bj6nszfpy9j13d29a71w"
+}

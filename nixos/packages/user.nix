@@ -1,7 +1,9 @@
-self: super:
+# https://nixos.wiki/wiki/FAQ#Why_not_use_nix-env_-i_foo.3F
+# bootstrap with: nix-env -f '<nixpkgs>' -r -iA userPackages
 
-{
-  userPackages = super.userPackages or  {
+self: super: {
+  userPackages = super.userPackages or  {} // {
+    ## nix (nscd, https://github.com/NixOS/nix/issues/599)
     inherit (self)
       graphviz
       emacs
@@ -24,6 +26,7 @@ self: super:
       # wm       
       i3-gaps;
 
+    ## helper script to keep user env clean
     nix-rebuild = super.writeScriptBin "nix-rebuild"
         ''
           #!${super.stdenv.shell}
