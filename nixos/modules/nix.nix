@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  nix.binaryCaches = lib.mkBefore [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  # nix.binaryCaches = lib.mkBefore [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 
   nix.gc = {
     automatic = true;

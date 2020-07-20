@@ -6,7 +6,6 @@ self: super: {
     ## nix (nscd, https://github.com/NixOS/nix/issues/599)
     inherit (self)
       graphviz
-      emacs
       nix-index
       ark
       bat
@@ -22,6 +21,11 @@ self: super: {
       ripgrep
 
       watchexec
+
+      # emacs
+      emacs
+      xclip
+      wakatime
 
       # wm       
       i3-gaps;
