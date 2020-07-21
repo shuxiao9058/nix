@@ -2,22 +2,26 @@
 
 {
   nixpkgs.overlays = import ../packages/list.nix;
-  # $ nix search wget
-  # environment.systemPackages = with pkgs; [ wget vim emacs git ];
 
   environment.systemPackages = with pkgs;
     let
       # Packages to always install.
       common = [
+        wget
+        # vim
+        emacs
         neovim
         tmux
         git
         unzip
+
         # emacs
         emacs
         wakatime
         nixfmt
         silver-searcher
+
+        # tools
         lrzsz
         python3
         coreutils
