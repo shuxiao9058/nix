@@ -10,6 +10,7 @@
     ./modules/filesystems.nix
     ./modules/graphical.nix
     ./modules/hardware.nix
+    ./modules/software.nix
     ./modules/nix.nix
     ./modules/system.nix
   ];
@@ -21,19 +22,18 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking = {
+    enableIPv6 = false;
     useDHCP = false;
     networkmanager.enable = true;
-    interfaces.enp0s3 = {
-        useDHCP = true;
-    };
-#     interfaces.enp0s5 = {
-#         useDHCP = true;
-#     };
+    interfaces.enp0s3 = { useDHCP = true; };
     hostName = "nixos";
+    firewall.allowedTCPPorts = [ 22 ];
+    firewall.enable = false;
+    firewall.allowPing = true;
   };
-#   networking.useDHCP = false;
-#   networking.interfaces.enp0s5.useDHCP = true;
-#   networking.interfaces.enp0s3.useDHCP = true;
+  #   networking.useDHCP = false;
+  #   networking.interfaces.enp0s5.useDHCP = true;
+  #   networking.interfaces.enp0s3.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -44,8 +44,6 @@
   # environment.systemPackages = with pkgs; [
   #   wget vim
   # ];
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [ wget vim emacs git ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
