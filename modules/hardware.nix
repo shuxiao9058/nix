@@ -1,7 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
+  imports = [
+    <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+    <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
+  ];
   # [ <nixpkgs/nixos/modules/profiles/qemu-guest.nix> ];
 
   boot.initrd.availableKernelModules =
@@ -9,6 +12,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+
+  # Virtualbox additions
+  environment.systemPackages = with pkgs;
+    [ linuxPackages.virtualboxGuestAdditions ];
 
   hardware.opengl = {
     enable = true;
