@@ -2,8 +2,8 @@
 
 {
   imports =
-    #  [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
-    [ <nixpkgs/nixos/modules/profiles/qemu-guest.nix> ];
+     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
+    # [ <nixpkgs/nixos/modules/profiles/qemu-guest.nix> ];
 
   boot.initrd.availableKernelModules =
     [ "uhci_hcd" "xhci_pci" "ehci_pci" "ata_piix" "sd_mod" "sr_mod" ];
@@ -36,6 +36,10 @@
   #       	    sha256 = "1avg7acp8jjz22w7hgh8vlv9gx2i9rahi9jvs2wdy3n4mb2aj2d9";
   #           };
   #           in pkgs.linuxPackages_4_14.callPackage "${src}/default.nix" {};
+  virtualisation = {
+virtualbox.host.enable = true;
+virtualbox.guest.enable = true;
+};
 
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
