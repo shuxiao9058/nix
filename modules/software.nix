@@ -21,6 +21,13 @@
         nixfmt
         silver-searcher
 
+        # devel tools
+        gnumake
+        cmake
+        llvm
+        clang
+        boost
+
         # tools
         lrzsz
         python3
@@ -38,13 +45,31 @@
       # nvidia-offload
     in common ++ (if config.services.xserver.enable then xorg else noxorg);
 
-  programs.vim.defaultEditor = true;
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    tmux = {
+      enable = true;
+      clock24 = true;
+      customPaneNavigationAndResize = true;
+      reverseSplit = true;
+    };
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
+      #  zsh-autoenv.enable = true;
+    };
+    command-not-found.enable = true;
+    vim.defaultEditor = true;
 
-  programs.mtr.enable = true;
+    mtr.enable = true;
 
-  # programs.wireshark.enable = true;
-
-  programs.ssh = { startAgent = true; };
+    # ssh = { startAgent = true; };
+  };
 
   #   environment.etc."chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json".source =
   #     "${pkgs.plasma-browser-integration}/etc/chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json";
