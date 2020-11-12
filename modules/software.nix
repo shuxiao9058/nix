@@ -15,8 +15,27 @@
         git
         unzip
 
-        # emacs
-        emacs
+            # (emacsUnstable.override { withGTK2 = false; withGTK3 = false; }) # Emacs 27
+
+        # # emacs
+        # emacsWithPackagesFromUsePackage
+        # {
+        #   config = builtins.readFile ./emacs.el;
+        #   # Package is optional, defaults to pkgs.emacs
+        #   package = pkgs.emacsGit;
+        #   # By default emacsWithPackagesFromUsePackage will only pull in packages with `:ensure t`.
+        #   # Setting alwaysEnsure to true emulates `use-package-always-ensure` and pulls in all use-package references.
+        #   alwaysEnsure = true;
+        #   # Optionally provide extra packages not in the configuration file
+        #   extraEmacsPackages = epkgs: [ epkgs.cask ];
+        #   # Optionally override derivations
+        #   override = epkgs:
+        #     epkgs // {
+        #       weechat = epkgs.melpaPackages.weechat.overrideAttrs
+        #         (old: { patches = [ ./weechat-el.patch ]; });
+        #     };
+        # }
+
         wakatime
         nixfmt
         silver-searcher
@@ -27,6 +46,9 @@
         llvm
         clang
         boost
+
+        # java
+        # java
 
         # tools
         lrzsz
@@ -67,9 +89,15 @@
     vim.defaultEditor = true;
 
     mtr.enable = true;
-
-    # ssh = { startAgent = true; };
   };
+
+  #  services.emacs = with pkgs; {
+  #   enable = true;
+  #   defaultEditor = true;
+  #   package = ((emacsPackagesGen).emacsWithPackages (epkgs: [
+  #       epkgs.vterm
+  #     ]));
+  # };
 
   #   environment.etc."chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json".source =
   #     "${pkgs.plasma-browser-integration}/etc/chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json";

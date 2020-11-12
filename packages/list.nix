@@ -1,1 +1,4 @@
-[ (import ./user.nix) ]
+[
+  (import ./user.nix)
+  # (import ./my-emacs.nix)
+]
